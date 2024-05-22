@@ -42,8 +42,6 @@ if ingredients_list:
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ search_on)
         data = fruityvice_response.json()
         text_df = pd.json_normalize(data)
-        st.dataframe(text_df)
-        st.stop()
         fv_df = st.dataframe(data = text_df, use_container_width=True)
         
     #st.write(ingredients_string)
