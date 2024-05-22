@@ -28,6 +28,10 @@ ingredients_list = st.multiselect(
     , my_dataframe
     , max_selections = 5
 )
+fruit_chosen = ingredients_list[0]
+search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON']
+st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
+st.stop()
 
 if ingredients_list:
     #df
