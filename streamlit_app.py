@@ -2,7 +2,6 @@
 import streamlit as st
 import requests
 import pandas as pd
-from pandas import jason_normalize
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -42,7 +41,7 @@ if ingredients_list:
         st.subheader(fruit_chosen + ' Nutrition Information')
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ search_on)
         data = response.json()
-        text_df = json_normalize(data)
+        text_df = pd.json_normalize(data)
         st.stop()
         st.dataframe(text_df)
         st.stop()
